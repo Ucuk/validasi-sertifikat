@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="login.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+</head>
+<body>
+    <div class="login-container">
+        <h2>Login</h2>
+        <form id="loginForm">
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username" required />
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" required />
+            <button type="submit">Login</button>
+            <p>Belum punya akun? <a href="register.html">Daftar di sini</a></p>
+            <p id="error-message" style="color: red; display: none;">Username atau password salah</p>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById("loginForm").addEventListener("submit", function(event) {
+            event.preventDefault(); // Mencegah submit form secara default
+
+            // Mendapatkan nilai username dan password
+            const username = document.getElementById("username").value;
+            const password = document.getElementById("password").value;
+
+            // Verifikasi username dan password
+            if (username === "admin" && password === "admin") {
+                // Jika cocok, arahkan ke halaman index.html
+                window.location.href = "index.html";
+            } else {
+                // Jika tidak cocok, tampilkan pesan kesalahan
+                document.getElementById("error-message").style.display = "block";
+            }
+        });
+    </script>
+</body>
+</html>

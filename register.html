@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="login.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Daftar</title>
+</head>
+<body>
+    <div class="login-container">
+        <h2>Daftar</h2>
+        <form id="registerForm">
+            <label for="newUsername">Username</label>
+            <input type="text" id="newUsername" name="newUsername" required />
+            <label for="newPassword">Password</label>
+            <input type="password" id="newPassword" name="newPassword" required />
+            <button type="submit">Daftar</button>
+            <p>Sudah punya akun? <a href="login.html">Login di sini</a></p>
+            <p id="register-error" style="color: red; display: none;">Akun sudah ada</p>
+            <p id="register-success" style="color: green; display: none;">Pendaftaran berhasil! Silakan login.</p>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById("registerForm").addEventListener("submit", function(event) {
+            event.preventDefault(); // Mencegah submit form secara default
+
+            const newUsername = document.getElementById("newUsername").value;
+            const newPassword = document.getElementById("newPassword").value;
+
+            // Cek apakah akun sudah ada
+            if (localStorage.getItem(newUsername)) {
+                document.getElementById("register-error").style.display = "block";
+                document.getElementById("register-success").style.display = "none";
+            } else {
+                // Simpan akun ke localStorage
+                localStorage.setItem(newUsername, newPassword);
+                document.getElementById("register-success").style.display = "block";
+                document.getElementById("register-error").style.display = "none";
+            }
+        });
+    </script>
+</body>
+</html>
