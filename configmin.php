@@ -1,5 +1,5 @@
 <?php
-$host = 'localhost';
+$host = '185.199.109.153';
 $dbname = 'validasi_sertifikat_admin';
 $username = 'root'; // Ganti dengan username MySQL Anda
 $password = ''; // Ganti dengan password MySQL Anda
