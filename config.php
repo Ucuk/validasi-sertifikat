@@ -1,5 +1,5 @@
 <?php
-$host = '185.199.109.153';
+$host = 'cdn-185-199-110-153.github.com';
 $dbname = 'validasi_sertifikat_admin';
 $username = 'root';
 $password = ''; // Sesuaikan dengan password MySQL Anda
